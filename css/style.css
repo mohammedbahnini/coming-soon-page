@@ -1,0 +1,248 @@
+*, *::after, *::before {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Josefin Sans", sans-serif;
+  position: relative;
+}
+
+main {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+@media screen and (max-width: 768px) {
+  main {
+    height: auto;
+  }
+}
+
+header {
+  position: absolute;
+  top: 4rem;
+  left: 15%;
+}
+@media screen and (max-width: 768px) {
+  header {
+    position: relative;
+    top: unset;
+    left: unset;
+    padding: 2rem 3rem;
+    background-color: white;
+  }
+}
+
+.hero {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+@media screen and (max-width: 768px) {
+  .hero {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .hero > * {
+    width: 100% !important;
+  }
+}
+.hero .hero-description {
+  width: 57%;
+  height: 100%;
+  background: url("../images/bg-pattern-desktop.svg") no-repeat, linear-gradient(135deg, white, #fff5f5);
+  background-size: cover;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-left: 15%;
+}
+@media screen and (max-width: 768px) {
+  .hero .hero-description {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+    padding: 5rem 2rem;
+    background: linear-gradient(135deg, white, #fff5f5);
+  }
+}
+.hero .hero-description .heading {
+  text-transform: uppercase;
+  font-size: 5rem;
+  letter-spacing: 1rem;
+  color: #413a3a;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  max-width: 28rem;
+}
+@media screen and (max-width: 768px) {
+  .hero .hero-description .heading {
+    text-align: center;
+    font-size: 2.5rem;
+  }
+}
+.hero .hero-description .heading .special {
+  color: #ce9797;
+  font-weight: 100;
+}
+.hero .hero-description .text {
+  color: #ce9797;
+  line-height: 1.75;
+  max-width: 28rem;
+  font-size: 1.125rem;
+  margin-bottom: 3rem;
+}
+@media screen and (max-width: 768px) {
+  .hero .hero-description .text {
+    text-align: center;
+    font-size: 1.1rem;
+  }
+}
+.hero .hero-description form {
+  max-width: 28rem;
+  min-height: 6.375rem;
+}
+.hero .hero-description form input[type=email] {
+  width: 100%;
+  border: 1px solid #ce9797;
+  padding: 1.5rem 2rem;
+  padding-right: 9rem;
+  border-radius: 50px;
+  font-weight: bold;
+  background-color: transparent;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 1.1rem;
+  outline: none;
+}
+@media screen and (max-width: 768px) {
+  .hero .hero-description form input[type=email] {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+}
+.hero .hero-description form input[type=email]::-webkit-input-placeholder {
+  color: #ce9797;
+}
+.hero .hero-description form input[type=email]::-moz-placeholder {
+  color: #ce9797;
+}
+.hero .hero-description form input[type=email]:-ms-input-placeholder {
+  color: #ce9797;
+}
+.hero .hero-description form input[type=email]::-ms-input-placeholder {
+  color: #ce9797;
+}
+.hero .hero-description form input[type=email]::placeholder {
+  color: #ce9797;
+}
+.hero .hero-description form.validated input[type=email]:invalid {
+  border: 1px solid #f96262;
+  background: url("../images/icon-error.svg") no-repeat calc(100% - 7rem);
+}
+@media screen and (max-width: 768px) {
+  .hero .hero-description form.validated input[type=email]:invalid {
+    background: url("../images/icon-error.svg") no-repeat calc(100% - 5.5rem);
+  }
+}
+.hero .hero-description form .form-input {
+  position: relative;
+  margin-bottom: 1rem;
+}
+.hero .hero-description form .form-input button[type=submit] {
+  border: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 6.3rem;
+  border-radius: 50px;
+  -webkit-box-shadow: rgba(206, 151, 151, 0.8) 0 12px 16px 0px;
+          box-shadow: rgba(206, 151, 151, 0.8) 0 12px 16px 0px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+@media screen and (max-width: 768px) {
+  .hero .hero-description form .form-input button[type=submit] {
+    width: 5rem;
+  }
+}
+.hero .hero-description form .form-input button[type=submit]::after {
+  content: linear-gradient(135deg, #f8bfbf, #ee8c8c);
+  position: absolute;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+.hero .hero-description form .form-input button[type=submit]::before {
+  content: url("../images/icon-arrow.svg");
+  position: absolute;
+  z-index: 1;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+}
+.hero .hero-description form .form-input button[type=submit]:hover::after {
+  opacity: 0.5;
+}
+.hero .hero-description form .error-validation {
+  color: #f96262;
+  padding-left: 1.5rem;
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .hero .hero-description form .error-validation {
+    padding-left: 1rem;
+  }
+}
+.hero .hero-girl {
+  width: 43%;
+  overflow: hidden;
+}
+@media screen and (max-width: 768px) {
+  .hero .hero-girl {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+  }
+}
+.hero .hero-girl img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.hero .hero-girl img.mobile {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .hero .hero-girl img.large {
+    display: none;
+  }
+  .hero .hero-girl img.mobile {
+    display: block;
+  }
+}

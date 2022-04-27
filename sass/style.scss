@@ -1,0 +1,200 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+* , *::after , *::before {
+    box-sizing: border-box;
+    margin : 0;
+    padding: 0;
+}
+body {
+    font-family: 'Josefin Sans', sans-serif;
+    position: relative;
+}
+
+main{
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    @include mobile{
+        height: auto;
+    }
+}
+
+header{
+    position : absolute;
+    top : 4rem;
+    left: 15%;
+    @include mobile{
+        position: relative;
+        top: unset;
+        left: unset;
+        padding: 2rem 3rem;
+        background-color: white;
+    }
+}
+
+.hero{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    @include mobile{
+        flex-direction: column;
+        & > * {
+            width: 100% !important;
+        }
+    }
+    #{&}-description{
+        width: 57%;
+        height: 100%;
+        background: url('../images/bg-pattern-desktop.svg') no-repeat , linear-gradient(135deg , $linear1-start , $linear1-end)  ;
+        background-size: cover; 
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 15%;
+        @include mobile{
+            order: 2;
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg , $linear1-start , $linear1-end);
+        }
+        .heading{
+            text-transform: uppercase;
+            font-size: 5rem;
+            letter-spacing: 1rem;
+            color : $dark-grayish-red;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            max-width: 28rem;
+            @include mobile{
+                text-align: center;
+                font-size : 2.5rem;
+            }
+            .special{
+                color : $desaturated-red;
+                font-weight : 100;
+            }
+        }
+        .text{
+            color : $desaturated-red;
+            line-height: 1.75;
+            max-width: 28rem;
+            font-size: 1.125rem;
+            margin-bottom: 3rem;
+            @include mobile{
+                text-align: center;
+                font-size: 1.1rem;
+            }
+        }
+
+        form{
+            max-width: 28rem;
+            min-height: 6.375rem;
+            input[type=email]{
+                width: 100%;
+                border: 1px solid $desaturated-red;
+                padding: 1.5rem 2rem;
+                padding-right: 9rem;
+                border-radius : 50px;
+                font-weight : bold;
+                background-color: transparent;
+                font-family: 'Josefin Sans', sans-serif;
+                font-size: 1.1rem;
+                outline: none;
+                @include mobile{
+                    font-size: 1rem;
+                    padding: 1rem ;
+                }
+                &::placeholder{
+                    color : $desaturated-red;
+                }
+
+                
+            }
+            &.validated{
+                input[type=email]:invalid{
+                    border: 1px solid $soft-red;
+                    background: url('../images/icon-error.svg') no-repeat calc(100% - 7rem);
+                    @include mobile{
+                        background: url('../images/icon-error.svg') no-repeat calc(100% - 5.5rem);
+                    }
+                }
+            }
+            .form-input{
+                position: relative;
+                margin-bottom: 1rem;
+                button[type=submit]{
+                    border: none;
+                    position: absolute;
+                    right: 0;
+                    top : 0;
+                    height: 100%;
+                    width: 6.3rem;
+                    border-radius: 50px;
+                    box-shadow : hsl(0deg 36% 70% / 80%) 0 12px 16px 0px;
+                    cursor : pointer;
+                    overflow: hidden;
+                    transition: .3s ;
+                    @include mobile{
+                        width: 5rem;
+                    }
+                    &::after{
+                        content : linear-gradient(135deg , $linear2-start , $linear2-end);
+                        position: absolute;
+                        z-index : 0;
+                        width: 100%;
+                        height: 100%;
+                        top : 0;
+                        right: 0;
+                        transition: .3s ;
+                    }
+                    &::before{
+                        content : url('../images/icon-arrow.svg');
+                        position: absolute;
+                        z-index : 1;
+                        display: grid;
+                        place-items: center;
+                        width: 100%;
+                        height: 100%;
+                        top : 0;
+                        right: 0;
+                    }
+                    &:hover::after{
+                        opacity: .5;
+                    }
+                }
+            }
+            .error-validation{
+                color : $soft-red;
+                padding-left :1.5rem;
+                display: none;
+                @include mobile{
+                    padding-left: 1rem;
+                }
+            }
+        }
+    }
+    #{&}-girl{
+        width: 43%;
+        overflow: hidden;
+        @include mobile{
+            order: 1;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            &.mobile{
+                display: none;
+            }
+            @include mobile{
+                &.large{
+                    display: none;
+                }
+                &.mobile{
+                    display: block;
+                }
+            }
+        }
+    }
+
+}

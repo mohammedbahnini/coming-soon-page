@@ -1,0 +1,7 @@
+@use 'variables' as *;
+
+@mixin mobile() {
+    @media screen and (max-width : 768px ){
+        @content ;
+    }
+}
